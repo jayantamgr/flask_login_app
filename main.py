@@ -9,10 +9,14 @@ app.secret_key = "your secret key"
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '******'
+app.config['MYSQL_PASSWORD'] = 'xxx'
 app.config['MYSQL_DB'] = 'loginapp'
 
 mysql = MySQL(app)
+
+@app.route('/')
+def main():
+	return render_template('main.html')
 
 @app.route('/login/', methods = ['GET', 'POST'])
 def login():
@@ -38,7 +42,7 @@ def logout():
 	session.pop('loggedin', None)
 	session.pop('id', None)
 	session.pop('username', None)
-	return redirect(url_for('login'))
+	return redirect(url_for('main'))
 
 @app.route('/login/register/', methods = ['GET', 'POST'])
 def register():
