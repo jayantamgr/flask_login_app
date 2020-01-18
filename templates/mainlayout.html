@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+				<h1>A login app</h1>
+                <a href="{{ url_for('login') }}"><i class="far fa-user"></i>Login</a>
+				<a href="{{ url_for('register') }}"><i class="far fa-address-book"></i>Register</a>
+			</div>
+		</nav>
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>
