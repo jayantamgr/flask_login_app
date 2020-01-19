@@ -4,4 +4,48 @@
 
 {% block content %}
 <h2>Welcome to Application</h2>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#box * {
+  box-sizing: border-box;
+  font-family: cursive;
+  color: #4f2a46;
+}
+
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>	
+</head>
+<div class="row">
+  <div class="column" id="box" style="background-color:#d0a1d6;">
+    <h2>Save your pics ...</h2>
+    <p>Upload your pictures and save it in your profile</p>
+  </div>
+  <div class="column" id="box" style="background-color:#ddb3e3;">
+    <h2>Post your blogs ...</h2>
+    <p>Share your stories and experiences</p>
+  </div>
+  <div class="column" id="box" style="background-color:#e8c2ed;">
+    <h2>Save your resume</h2>
+    <p>Add your career profile ... </p>
+  </div>
+  <div class="column" id="box" style="background-color:#d4c1d6;">
+    <h2>And lot more ...</h2>
+    <p>Register now !</p>
+  </div>
+</div>
+
 {% endblock %}

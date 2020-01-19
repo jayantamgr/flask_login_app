@@ -18,8 +18,8 @@
 	<div class="content">
 		{% block content %}{% endblock %}
 		<div>
-		    <h1>Welcome to the application {{ new_account_info['firstname'] }}. Click below to login</h1>
-		    <a href="{{ url_for('login') }}">Login</a>
+		    <h1 class="welcomeh1">Welcome to the application {{ new_account_info['firstname'] }}. Click below to login</h1>
+		    <a href="{{ url_for('login') }}" class="loginfwelcome">Login</a>
 		</div>
 	</div>
 </body>

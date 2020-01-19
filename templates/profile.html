@@ -5,7 +5,7 @@
 {% block content %}
 <h2>Profile Page</h2>
 <div>
-    <p>Your account details are below:</p>
+    <p>Your personal details are below: <a href="{{ url_for('editprofile') }}">Edit Profile</a></p>
     <table>
         <tr>
             <td>Username:</td>
@@ -18,6 +18,26 @@
         <tr>
             <td>Email:</td>
             <td>{{ account['email'] }}</td>
+        </tr>
+
+         <tr>
+            <td>First Name:</td>
+            <td>{{ account['firstname'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Last Name:</td>
+            <td>{{ account['lastname'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Birthday:</td>
+            <td>{{ account['birthdate'] }}</td>
+        </tr>
+
+        <tr>
+            <td>Nationality:</td>
+            <td>{{ account['nationality'] }}</td>
         </tr>
     </table>
 </div>

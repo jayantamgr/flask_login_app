@@ -150,3 +150,15 @@ body.loggedin {
   content:"*";
   color:red;
 }
+
+.welcomeh1 > h1 {
+  font-family: cursive;
+  font-size: 10vw;
+  color: #5d5d6e;
+}
+
+.loginfwelcome > div {
+  font-family: sans-serif;
+  font-size: 5vw;
+  color: #7777b5;
+}

@@ -14,10 +14,30 @@
 				<a href="{{ url_for('register') }}" class="active">Register</a>
 			</div>
 			<form action="{{ url_for('register') }}" method="post" autocomplete="off">
+				<label for="salutation">
+					<i class="fas fa-user"></i>
+				</label>
+				<select name="salutation">
+			      <option value="mrs">   </option>		
+				  <option value="mrs">Mrs.</option>
+				  <option value="mr">Mr.</option>
+				  <option value="ms">Ms.</option>
+				</select>
+				<label for="firstname">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="firstname" placeholder="First Name" id="firstname" required>
+
+				<label for="lastname">
+					<i class="fas fa-user"></i>
+				</label>
+				<input type="text" name="lastname" placeholder="Last Name" id="lastname" required>
+
 				<label for="username">
 					<i class="fas fa-user"></i>
 				</label>
 				<input type="text" name="username" placeholder="Username" id="username" required>
+
 				<label for="password">
 					<i class="fas fa-lock"></i>
 				</label>
@@ -26,6 +46,16 @@
 					<i class="fas fa-envelope"></i>
 				</label>
 				<input type="email" name="email" placeholder="Email" id="email" required>
+
+				<label for="birthdate">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="date" name="birthdate" id="birthdate" required>
+
+				<label for="nationality">
+					<i class="fas fa-lock"></i>
+				</label>
+				<input type="text" name="nationality" placeholder="Nationality" id="nationality" required>
 				<div class="msg">{{ msg }}</div>
 				<input type="submit" value="Register">
 			</form>
