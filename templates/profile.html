@@ -40,5 +40,127 @@
             <td>{{ account['nationality'] }}</td>
         </tr>
     </table>
+<br>
+    <p>Your Education details are below: </p>
+{% for item in education %}
+    <table style="width:100%; background-color: #b5a98a; border-radius: 10px;">
+
+        <tr>
+                <td>Institute Name:</td>
+                <td>{{ item['institute_name'] }}</td>
+        </tr>
+
+
+        <tr>
+                <td>Course:</td>
+                <td>{{ item['course_name'] }}</td>
+        </tr> 
+
+        <tr>
+                <td>Degree:</td>
+                <td>{{ item['degree'] }}</td>
+        </tr>
+
+        <tr>
+                <td>City:</td>
+                <td>{{ item['city'] }}</td>
+        </tr>
+
+        <tr>
+                <td>Country:</td>
+                <td>{{ item['country'] }}</td>
+        </tr>
+        <tr>
+                <td>Description of your study:</td>
+                <td>{{ item['Description'] }}</td>
+        </tr>
+
+    </table>
+    <br>
+{% endfor %}    
+
 </div>
+
+<div class="addeducation" id="education">
+    <body>
+    <p>Add Education here:</p>
+    <form action="{{ url_for('editprofile') }}" method="post">
+        <label for="institute_name">
+            <i class=""></i>
+        </label>
+        <input type="text" name="institute_name" placeholder="Name of the Institute" id="institute_name">
+
+        <label for="course_name">
+            <i class=""></i>
+        </label>
+        <input type="text" name="course_name" placeholder="Course Name" id="course_name" required>
+
+        <label for="degree">
+            <i class=""></i>
+        </label>
+        <input type="text" name="degree" placeholder="Degree Name" id="degree" required>
+
+        <label for="city">
+            <i class=""></i>
+        </label>
+        <input type="text" name="city" placeholder="City" id="city" required>
+
+        <label for="country">
+            <i class=""></i>
+        </label>
+        <input type="text" name="country" placeholder="Country" id="country" required>
+
+        <label for="Description">
+            <i class=""></i>
+        </label>
+        <textarea type="text" name="Desription" rows="8" cols="80" placeholder="Add course Description here ..."></textarea>
+
+        <div class="msg">{{ msg }}</div>
+        <br>
+        <input type="submit" value="Add" class="myButton">
+    </form>
+    <br>
+</div>
+
+<button onclick="myFunction()" class="myButton">Add Education</button>
+
+<script>
+    function myFunction() {
+      var x = document.getElementById("education");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+</script>
+<style>
+    .myButton {
+        box-shadow:inset 0px 0px 14px -3px #f2fadc;
+        background:linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+        background-color:#dbe6c4;
+        border-radius:6px;
+        border:1px solid #b2b8ad;
+        display:inline-block;
+        cursor:pointer;
+        color:#757d6f;
+        font-family:Arial;
+        font-size:15px;
+        font-weight:bold;
+        padding:6px 24px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #ced9bf;
+    }
+    .myButton:hover {
+        background:linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+        background-color:#9ba892;
+    }
+    .myButton:active {
+        position:relative;
+        top:1px;
+    }
+
+</style>
+</body>
+
 {% endblock %}

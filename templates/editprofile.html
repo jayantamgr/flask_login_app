@@ -4,11 +4,61 @@
 
 {% block content %}
 <h2>Profile Edit Page</h2>
-<div>
+<div class="addeducation" id="education">
+    <body>
+
     <p>Edit your profile here:</p>
     <br>
-    <p>Add Education</p>
+    
+    <form action="{{ url_for('editprofile') }}" method="post">
+
+        <label for="institute_name">
+            <i class=""></i>
+        </label>
+        <input type="text" name="institute_name" placeholder="Name of the Institute" id="institute_name">
+
+        <label for="course_name">
+            <i class=""></i>
+        </label>
+        <input type="text" name="course_name" placeholder="Course Name" id="course_name" required>
+
+        <label for="degree">
+            <i class=""></i>
+        </label>
+        <input type="text" name="degree" placeholder="Degree Name" id="degree" required>
+
+        <label for="city">
+            <i class=""></i>
+        </label>
+        <input type="text" name="city" placeholder="City" id="city" required>
+
+        <label for="country">
+            <i class=""></i>
+        </label>
+        <input type="text" name="country" placeholder="Country" id="country" required>
+
+        <label for="Description">
+            <i class=""></i>
+        </label>
+        <input type="text" name="Description" placeholder="Add Description" id="Description">
+
+        <div class="msg">{{ msg }}</div>
+        <input type="submit" value="Add" class="myButton">
+    </form>
     <br>
-    <p>Add Address</p>
 </div>
+<button onclick="myFunction()">Add Education</button>
+    <script>
+    function myFunction() {
+      var x = document.getElementById("education");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+    </script>
+
+
+</body>
 {% endblock %}

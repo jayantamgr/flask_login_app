@@ -96,21 +96,46 @@ def home():
 
 @app.route('/pythonlogin/profile')
 def profile():
+    print('x1')
     # Check if user is loggedin
     if 'loggedin' in session:
         # We need all the account info for the user so we can display it on the profile page
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts JOIN user WHERE user.account_id = %s AND accounts.id = %s', [session['id'], session['id']])
+        cursor.execute('SELECT * FROM accounts JOIN user WHERE user.account_id = %s AND accounts.id = %s', (session['id'], session['id']))
         account = cursor.fetchone()
         # Show the profile page with account info
-        return render_template('profile.html', account=account)
+        cursor.execute('SELECT * FROM education WHERE account_id = %s', [session['id'], ])
+        education = cursor.fetchall()    
+        print(education)    
+        return render_template('profile.html', account=account, education=education)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
 @app.route('/pythonlogin/profile/editprofile', methods = ['GET', 'POST', 'PUT'])
 def editprofile():
+	if 'loggedin' in session:
+		if request.method == 'POST':
+			print('x1') # and 'course' in request.form and 'institute' in request.form:
+			institute = request.form['institute_name']
+			course = request.form['course_name']
+			degree = request.form['degree']
+			country = request.form['country']
+			city = request.form['city']
+			description = request.form['Description']
+			print(description)
+			cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+			cursor.execute('SELECT * FROM user WHERE account_id = %s', (session['id'], ))
+			uid = cursor.fetchone()
+			print(uid['id'])
+			cursor.execute('INSERT INTO education VALUES (NULL, %s, %s, %s, %s, %s, %s, %s, %s)', (institute, course, degree, city, country, description, uid['id'], session['id'] ))
+			mysql.connection.commit()
+			return redirect(url_for('profile'))
 	return render_template('editprofile.html')
-	"""
+
+
+
+
+"""
 	if 'loggedin' in session:
 		firstname = request.form['firstname'] 
 		lastname = request.form['lastname']
